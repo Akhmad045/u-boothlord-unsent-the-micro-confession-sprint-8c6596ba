@@ -41,6 +41,8 @@ def check(text):
         return "entry is %d characters, over the 260-character gate" % len(text)
     if text.strip() == "":
         return "entry is only whitespace"
+    if text.endswith("\n"):
+        return "entry ends with a newline: the message line is empty"
     if text != text.strip():
         return "entry has leading or trailing whitespace"
     if "\r" in text:
